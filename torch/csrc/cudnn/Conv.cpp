@@ -291,12 +291,13 @@ void findAlgorithm(
     // re-check cache since another thread may have benchmarked the algorithm
     return;
   }
-  auto perfResults = search::findAlgorithm(state, handle, conv, in, out, wght);
-  if (perfResults.status == CUDNN_STATUS_SUCCESS) {
-    *algo = perfResults.algo;
-  } else {
-    *algo = search::DEFAULT_ALGO;
-  }
+  // auto perfResults = search::findAlgorithm(state, handle, conv, in, out, wght);
+  // if (perfResults.status == CUDNN_STATUS_SUCCESS) {
+  //   *algo = perfResults.algo;
+  // } else {
+  //   *algo = search::DEFAULT_ALGO;
+  // }
+  *algo = search::DEFAULT_ALGO;
   cache.insert(conv.params, *algo);
 
   THCDeviceAllocator* allocator = THCCachingAllocator_get();
