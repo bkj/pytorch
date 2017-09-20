@@ -161,7 +161,7 @@ class build_py(setuptools.command.build_py.build_py):
         print('-- Building version ' + version)
         version_path = os.path.join(cwd, 'torch', 'version.py')
         with open(version_path, 'w') as f:
-            f.write("__version__ = '{}'\n".format(version))
+            f.write("__version__ = '{}_dev'\n".format(version))
 
 
 class develop(setuptools.command.develop.develop):
