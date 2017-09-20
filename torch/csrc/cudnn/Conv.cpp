@@ -150,7 +150,7 @@ struct algorithm_search<cudnnConvolutionFwdAlgo_t> {
   }
 
   static cudnnConvolutionFwdAlgoPerf_t findAlgorithm(THCState* state, cudnnHandle_t handle, const Convolution& conv,
-						      void* in, void* out, void* wght) {
+                  void* in, void* out, void* wght) {
     int algoCount;
     cudnnConvolutionFwdAlgoPerf_t perfResults;
     cudnnConvolutionFwdAlgo_t algo[] = {
@@ -193,11 +193,11 @@ struct algorithm_search<cudnnConvolutionBwdDataAlgo_t> {
   }
 
   static cudnnConvolutionBwdDataAlgoPerf_t findAlgorithm(THCState* state,cudnnHandle_t handle, const Convolution& conv,
-							  void* in, void* out, void* wght) {
+                void* in, void* out, void* wght) {
     int algoCount;
     cudnnConvolutionBwdDataAlgoPerf_t perfResults;
     cudnnConvolutionBwdDataAlgo_t algo[] = {
-         CUDNN_CONVOLUTION_BWD_DATA_ALGO_0,
+         // CUDNN_CONVOLUTION_BWD_DATA_ALGO_0,
          CUDNN_CONVOLUTION_BWD_DATA_ALGO_1,
          CUDNN_CONVOLUTION_BWD_DATA_ALGO_FFT,
          CUDNN_CONVOLUTION_BWD_DATA_ALGO_FFT_TILING,
@@ -235,14 +235,14 @@ struct algorithm_search<cudnnConvolutionBwdFilterAlgo_t> {
   }
 
   static cudnnConvolutionBwdFilterAlgoPerf_t findAlgorithm(THCState* state, cudnnHandle_t handle, const Convolution& conv,
-							    void* in, void* out, void* wght) {
+                  void* in, void* out, void* wght) {
     int algoCount;
     cudnnConvolutionBwdFilterAlgoPerf_t perfResults;
     cudnnConvolutionBwdFilterAlgo_t algo[] = {
-         CUDNN_CONVOLUTION_BWD_FILTER_ALGO_0,
+         // CUDNN_CONVOLUTION_BWD_FILTER_ALGO_0,
          CUDNN_CONVOLUTION_BWD_FILTER_ALGO_1,
          CUDNN_CONVOLUTION_BWD_FILTER_ALGO_FFT,
-         CUDNN_CONVOLUTION_BWD_FILTER_ALGO_3,
+         // CUDNN_CONVOLUTION_BWD_FILTER_ALGO_3,
          CUDNN_CONVOLUTION_BWD_FILTER_ALGO_WINOGRAD_NONFUSED,
 #if CUDNN_VERSION >= 6000
          CUDNN_CONVOLUTION_BWD_FILTER_ALGO_FFT_TILING,
